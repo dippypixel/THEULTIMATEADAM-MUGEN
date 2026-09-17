@@ -1,0 +1,40 @@
+;***************************************************************************;
+;******************* YOU CANT SAY F**K BUT FAGGOT IS AOK *******************;
+;***************************************************************************;
+
+[Info]
+name = "Adam-JC"
+displayname = "Adam-JC"
+versiondate = 04,14,2002
+mugenversion = 1.1
+author = "Spat856"
+;SC;Author = "Spat856, AI by guymbagoomba"
+pal.defaults = 1,2,3,4
+
+[Files]
+sprite = Adam.sff
+anim = Adam.air
+sound = Adam.snd
+cmd = Adam.cmd
+cns = Adam.cns
+stcommon = common1.cns
+st = Adam.cns
+st1 = helpers.cns
+st2 = AI.st
+movelist = movelist.dat
+pal1 = a1.act
+pal2 = a2.act
+pal3 = a3.act
+pal4 = a4.act
+pal5 = Prison.act
+pal6 = greenshirt.act
+pal7 = Lucas.act
+pal8 = a6.act
+pal9 = TIS.act
+pal10 = GangstaBlingYo.act
+pal11 = CommanderKeen.act
+pal12 = IceFighter.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

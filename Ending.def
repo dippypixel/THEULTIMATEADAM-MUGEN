@@ -1,0 +1,46 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[SceneDef]
+spr = 15,1
+startscene = 0
+
+[Scene 0]
+fadein.time = 0
+fadein.col = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0
+bgm = 
+bgm.loop = 0
+end.time = 5
+
+[Scene 1]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0
+bgm = intro.mp3
+bgm.loop = 0
+end.time = 400
+
+[Scene 2]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 40
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 0,0
+bgm = 
+bgm.loop = 0
+end.time = 370
+
+; Panel animation
+[Begin Action 0]
+5,0, 0,0, 1, 
+
