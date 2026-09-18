@@ -2376,8 +2376,8 @@ hitsound = s8000,4
 guardsound = s8500,0
 ground.type = low
 ground.slidetime = 13
-ground.hittime = 13
-ground.velocity = -5
+ground.hittime = 16
+ground.velocity = -3
 air.type = low
 air.hittime = 5
 air.velocity = -7,3
@@ -2433,7 +2433,7 @@ sprpriority = 2
 [State PUSH FORWARD]
 type = VelSet
 trigger1 = time=0 
-x = 7
+x = ifelse(p2dist x/10 > 7,7,p2dist x/10)
 
 
 [State 450, VelMul]
@@ -3942,6 +3942,166 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
+;---------------------------------------------------------------------------------------------
+;PACMAN ADAM ZOLY JUNKZ!! O_o
+;PacAdam
+[Statedef 334112]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+poweradd = -500
+anim = 34215
+ctrl = 0
+sprpriority = 2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time=1
+v = 33    ;fv = 10
+value = 1
+
+[State 65002, PalFXWiz]
+type = PalFX
+Trigger1 = AnimElem = 1
+trigger2 = AnimElem = 5
+trigger3 = AnimElem = 9
+time = 22
+add = 29,29,0
+mul = 256,256,256
+sinadd = 58,58,0,3
+
+[State 240, 3]
+type = VelSet
+Trigger1 = AnimElem = 3
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 11
+x = 12
+
+[state PlaySnd]
+Type = PlaySnd
+Trigger1 = AnimElem = 3
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 11
+Value = S104312, 1
+channel = 4
+
+[state PlaySnd]
+Type = PlaySnd
+Trigger1 = time = 0
+Value = S104312, 0
+
+[State 200, HitDef]
+type = HitDef
+Trigger1 = AnimElem = 3
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 11
+attr = S,NA
+damage = 10,1
+animtype = Hard
+guardflag = MA
+hitflag = MAF
+pausetime = 6,10
+sparkno = -1
+sparkxy = -10, -60
+guard.sparkno = s6767
+hitsound = S33455,0
+guardsound = S8500,0
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -2
+air.type = Low
+air.hittime = 15
+air.velocity = -6,-2
+envshake.time = 1
+envshake.ampl = 1
+palfx.time = 4
+palfx.add = 255,255,255
+palfx.mul = 255,255,256
+palfx.sinadd = 255,255,255,255
+palfx.color = 0
+
+[State 65000, AfterImage]
+type = AfterImage
+Trigger1 = AnimElem = 1
+trigger2 = AnimElem = 5
+trigger3 = AnimElem = 9
+time = 22
+length = 10
+paladd = 50,50,0
+framegap = 2
+trans = add
+
+[State 211]
+Type = Helper
+TriggerAll = (MoveHit = 1)*(P2MoveType = H)
+Trigger1 = (MoveType = A)
+Trigger1 = !NumHelper(7000)
+Trigger2 = (StateNo = 1000)*(NumTarget(1000) > 0)*(Target(1000), Time = 0)
+Name = "MBAA Hit Spark"
+StateNo = 7000
+ID = 7000
+Pos = IfElse(MoveType = H,Ceil(P2Dist X/2),0),-45-Ceil(P2BodyDist Y)
+PosType = P2
+OwnPal = 1
+SprPriority = 5
+IgnoreHitPause = 1
+Persistent = 0
+Size.XScale = 1.5
+Size.YScale = 1.5
+PauseMoveTime = 9999
+SuperMoveTime = 9999
+
+[State 211]
+Type = Helper
+TriggerAll = (MoveHit = 1)*(P2MoveType = H)
+Trigger1 = (MoveType = A)
+Trigger1 = !NumHelper(7000)
+Trigger2 = (StateNo = 1000)*(NumTarget(1000) > 0)*(Target(1000), Time = 0)
+Name = "MBAA Hit Spark"
+StateNo = 7000
+ID = 7000
+Pos = IfElse(MoveType = H,Ceil(P2Dist X/2),0),-45-Ceil(P2BodyDist Y)
+PosType = P2
+OwnPal = 1
+SprPriority = 5
+IgnoreHitPause = 1
+Persistent = 0
+Size.XScale = 1.5
+Size.YScale = 1.5
+PauseMoveTime = 9999
+SuperMoveTime = 9999
+
+[State 211]
+Type = Helper
+TriggerAll = (MoveHit = 1)*(P2MoveType = H)
+Trigger1 = (MoveType = A)
+Trigger1 = !NumHelper(7000)
+Trigger2 = (StateNo = 1000)*(NumTarget(1000) > 0)*(Target(1000), Time = 0)
+Name = "MBAA Hit Spark"
+StateNo = 7000
+ID = 7000
+Pos = IfElse(MoveType = H,Ceil(P2Dist X/2),0),-45-Ceil(P2BodyDist Y)
+PosType = P2
+OwnPal = 1
+SprPriority = 5
+IgnoreHitPause = 1
+Persistent = 0
+Size.XScale = 1.5
+Size.YScale = 1.5
+PauseMoveTime = 9999
+SuperMoveTime = 9999
+
+[State 1000, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+
 ;Bat
 [Statedef 1021]
 Type = A
@@ -4193,164 +4353,6 @@ ignorehitpause=1
 [State End]
 Type = DestroySelf
 Trigger1 = root,stateno!=1022
-
-;---------------------------------------------------------------------------------------------
-;PACMAN ADAM ZOLY JUNKZ!! O_o
-[Statedef 334112]
-type    = S
-movetype= A
-physics = S
-juggle  = 1
-poweradd = -500
-anim = 34215
-ctrl = 0
-sprpriority = 2
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = time=1
-v = 33    ;fv = 10
-value = 1
-
-[State 65002, PalFXWiz]
-type = PalFX
-Trigger1 = AnimElem = 1
-trigger2 = AnimElem = 5
-trigger3 = AnimElem = 9
-time = 22
-add = 29,29,0
-mul = 256,256,256
-sinadd = 58,58,0,3
-
-[State 240, 3]
-type = VelSet
-Trigger1 = AnimElem = 3
-trigger2 = AnimElem = 7
-trigger3 = AnimElem = 11
-x = 12
-
-[state PlaySnd]
-Type = PlaySnd
-Trigger1 = AnimElem = 3
-trigger2 = AnimElem = 7
-trigger3 = AnimElem = 11
-Value = S104312, 1
-channel = 4
-
-[state PlaySnd]
-Type = PlaySnd
-Trigger1 = time = 0
-Value = S104312, 0
-
-[State 200, HitDef]
-type = HitDef
-Trigger1 = AnimElem = 3
-trigger2 = AnimElem = 7
-trigger3 = AnimElem = 11
-attr = S,NA
-damage = 10,1
-animtype = Hard
-guardflag = MA
-hitflag = MAF
-pausetime = 6,10
-sparkno = -1
-sparkxy = -10, -60
-guard.sparkno = s6767
-hitsound = S8000,0+random%2
-guardsound = S8500,0
-ground.type = High
-ground.slidetime = 15
-ground.hittime  = 15
-ground.velocity = -2
-air.type = Low
-air.hittime = 15
-air.velocity = -6,-2
-envshake.time = 1
-envshake.ampl = 1
-palfx.time = 4
-palfx.add = 255,255,255
-palfx.mul = 255,255,256
-palfx.sinadd = 255,255,255,255
-palfx.color = 0
-
-[State 65000, AfterImage]
-type = AfterImage
-Trigger1 = AnimElem = 1
-trigger2 = AnimElem = 5
-trigger3 = AnimElem = 9
-time = 22
-length = 10
-paladd = 50,50,0
-framegap = 2
-trans = add
-
-[State 211]
-Type = Helper
-TriggerAll = (MoveHit = 1)*(P2MoveType = H)
-Trigger1 = (MoveType = A)
-Trigger1 = !NumHelper(7000)
-Trigger2 = (StateNo = 1000)*(NumTarget(1000) > 0)*(Target(1000), Time = 0)
-Name = "MBAA Hit Spark"
-StateNo = 7000
-ID = 7000
-Pos = IfElse(MoveType = H,Ceil(P2Dist X/2),0),-45-Ceil(P2BodyDist Y)
-PosType = P2
-OwnPal = 1
-SprPriority = 5
-IgnoreHitPause = 1
-Persistent = 0
-Size.XScale = 1.5
-Size.YScale = 1.5
-PauseMoveTime = 9999
-SuperMoveTime = 9999
-
-[State 211]
-Type = Helper
-TriggerAll = (MoveHit = 1)*(P2MoveType = H)
-Trigger1 = (MoveType = A)
-Trigger1 = !NumHelper(7000)
-Trigger2 = (StateNo = 1000)*(NumTarget(1000) > 0)*(Target(1000), Time = 0)
-Name = "MBAA Hit Spark"
-StateNo = 7000
-ID = 7000
-Pos = IfElse(MoveType = H,Ceil(P2Dist X/2),0),-45-Ceil(P2BodyDist Y)
-PosType = P2
-OwnPal = 1
-SprPriority = 5
-IgnoreHitPause = 1
-Persistent = 0
-Size.XScale = 1.5
-Size.YScale = 1.5
-PauseMoveTime = 9999
-SuperMoveTime = 9999
-
-[State 211]
-Type = Helper
-TriggerAll = (MoveHit = 1)*(P2MoveType = H)
-Trigger1 = (MoveType = A)
-Trigger1 = !NumHelper(7000)
-Trigger2 = (StateNo = 1000)*(NumTarget(1000) > 0)*(Target(1000), Time = 0)
-Name = "MBAA Hit Spark"
-StateNo = 7000
-ID = 7000
-Pos = IfElse(MoveType = H,Ceil(P2Dist X/2),0),-45-Ceil(P2BodyDist Y)
-PosType = P2
-OwnPal = 1
-SprPriority = 5
-IgnoreHitPause = 1
-Persistent = 0
-Size.XScale = 1.5
-Size.YScale = 1.5
-PauseMoveTime = 9999
-SuperMoveTime = 9999
-
-[State 1000, End]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-
 
 ;------------------
 ; Hit by Fast Kung Fu Palm - shaking from the hit
@@ -4855,18 +4857,6 @@ type = VarSet
 trigger1 = time=1
 v = 35    ;fv = 10
 value = 1
-s
-
-[State 0, VelAdd]
-type = Velset
-trigger1 = time=1
-x = ifelse(command= "holdfwd",2,-2)
-y = -5
-[State 0, VelAdd]
-type = Velset
-trigger1 = time=1&& vel y > -5
-y = -5
-
 
 [State 4332, Voice]
 type = PlaySnd
@@ -4875,9 +4865,19 @@ value = S12, 10
 volume = 255
 channel = 1
 
+[State 0, VelAdd]
+type = Velset
+trigger1 = animelem=3
+x = ifelse(command= "holdfwd",2,-2)
+[State 0, VelAdd]
+type = Velset
+trigger1 = animelem=3&& vel y > -5
+y = -5
+
+
 [State 0, Helper]
 type = Helper
-trigger1 = animelem=1
+trigger1 = animelem=3
 helpertype = Normal ;Player
 name = "Green Shit"
 ID = 4334
@@ -4890,7 +4890,7 @@ ownpal = 0
 persistent=0
 [State 4332, Effect]
 type = PlaySnd
-trigger1 = AnimElem = 1 && time < 14
+trigger1 = AnimElem = 3
 value = 1337,4
 volume = 255
 
@@ -4916,7 +4916,7 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = root,stateno=4332
-x = 10
+x = 8
 ignorehitpause = 1
 
 [State 0, VelSet]
@@ -5160,11 +5160,11 @@ sprpriority = 2
 
 [State 31673, Voice]
 type = PlaySnd
-trigger1 = time = 5
+trigger1 = time = 3
 value = S22000, 1
 volume = 255
 channel = 1
-
+freqmul= 0.9-0.1
 [State 31673, Effect]
 type = PlaySnd
 trigger1 = AnimElem = 6 && time < 14
@@ -5315,7 +5315,6 @@ trigger1 = time = 1
 value = S22000, 1
 volume = 255
 channel = 1
-freqmul= 0.9-0.1
 
 [State 31672, Effect]
 type = PlaySnd
@@ -5380,13 +5379,12 @@ ignorehitpause = 1
 
 [State Stay]
 Type = StateTypeSet
-Trigger1 = Vel Y > 0 && Pos Y >= 0
+Trigger1 = Vel Y > 0 && Pos Y >= -15
 StateType = S
 
 [State Stop]
 Type = VelSet
 Trigger1 = StateType = S
-X = 0
 Y = 0
 
 [State AngleAdd]
@@ -5442,7 +5440,7 @@ SuperMoveTime = 9999
 [State 0, AngleAdd]
 type = AngleAdd
 trigger1 = 1
-value = 21
+value = 19
 
 [State 0, AngleDraw]
 type = AngleDraw
@@ -5459,9 +5457,10 @@ Type = ChangeState
 Trigger1 = StateType = S
 Value = 31676
 
+;GameBoy Dead
 [Statedef 31676]
 Type = S
-Physics = N
+Physics = S
 Ctrl = 0
 
 [State 0, PlaySnd]
