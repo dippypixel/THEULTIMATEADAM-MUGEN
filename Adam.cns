@@ -52,8 +52,8 @@ power = 3000
 [Size]
 xscale = 1
 yscale = 1
-ground.back = 20
-ground.front = 20
+ground.back = 15
+ground.front = 15
 air.back = 18
 air.front = 22
 height = 60
@@ -287,7 +287,7 @@ type = S
 [State 180, 2]
 type = ChangeState
 trigger1 = Time = 0
-value = 181+random%2
+value = 181+random%3
 ;---------------------------------------------------------------------------------------------
 ;Win Pose 1
 
@@ -1194,7 +1194,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 200
-poweradd = 15
 sprpriority = 2
 
 [State 200, VelMul, corrida]
@@ -1213,6 +1212,7 @@ type = HitDef
 trigger1 = time=0
 attr = S,NA
 damage = 15,1
+
 animtype = Light
 guardflag = MA
 hitflag = MAF
@@ -1280,7 +1280,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 211
-poweradd = 35
 sprpriority = 2
 
 
@@ -1310,6 +1309,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = S,NA
 damage = 25,1
+
 animtype = Medium
 guardflag = MA
 hitflag = MAF
@@ -1377,7 +1377,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 211
-poweradd = 35
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -1401,6 +1400,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = S,NA
 damage = 25,1
+
 animtype = Medium
 guardflag = MA
 hitflag = MAF
@@ -1468,7 +1468,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 221
-poweradd = 55
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -1492,6 +1491,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = S,NA
 damage = 35,1
+
 animtype = High
 guardflag = MA
 hitflag = MAF
@@ -1559,7 +1559,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 220
-poweradd = 55
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -1583,6 +1582,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = S,NA
 damage = 35,1
+
 animtype = High
 guardflag = MA
 hitflag = MAF
@@ -1638,7 +1638,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 230
-poweradd = 15
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -1667,6 +1666,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = S,NA
 damage = 15,1
+
 animtype = Light
 guardflag = MA
 hitflag = MAF
@@ -1732,7 +1732,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 240
-poweradd = 35
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -1756,6 +1755,7 @@ type = HitDef
 trigger1 = AnimElem = 4
 attr = S,NA
 damage = 35,1
+
 animtype = Medium
 guardflag = MA
 hitflag = MAF
@@ -1821,7 +1821,6 @@ physics = S
 juggle  = 4
 ctrl = 0
 anim = 241
-poweradd = 35
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -1846,6 +1845,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = S,NA
 damage = 35,1
+
 animtype = Medium
 guardflag = MA
 hitflag = MAF
@@ -1911,7 +1911,6 @@ physics = S
 juggle  = 1
 ctrl = 0
 anim = 250
-poweradd = 55
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -1936,6 +1935,7 @@ trigger1 = Time = 0
 attr = S, NA
 animtype  = Hard
 damage    = 38
+
 guardflag = MA
 pausetime = 15,15
 sparkno = -1
@@ -1989,7 +1989,6 @@ physics = C
 juggle  = 4
 ctrl = 0
 anim = 400
-poweradd = 15
 sprpriority = 2
 
 [State 400, VelMul]
@@ -2008,6 +2007,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = C,NA
 damage = 15,1
+
 animtype = Light
 guardflag = MA
 hitflag = MAF
@@ -2073,7 +2073,6 @@ physics = C
 juggle  = 4
 ctrl = 0
 anim = 410
-poweradd = 35
 sprpriority = 2
 
 
@@ -2099,6 +2098,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = C,NA
 damage = 35,1
+
 animtype = Medium
 guardflag = MA
 hitflag = MAF
@@ -2164,7 +2164,6 @@ physics = C
 juggle  = 4
 ctrl = 0
 anim = 420
-poweradd = 55
 sprpriority = 2
 
 [State 200, PlaySnd]
@@ -2188,6 +2187,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = C,NA
 damage = 45,1
+
 animtype = up
 guardflag = MA
 hitflag = MAF
@@ -2209,6 +2209,7 @@ ID = 420
 NoChainID = 420
 fall = 1
 fall.recover = IfElse(P2StateType = A,0,1)
+fall.recovertime=60
 
 [State 211]
 Type = Helper
@@ -2245,7 +2246,6 @@ physics = C
 juggle  = 4
 ctrl = 0
 anim = 430
-poweradd = 15
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -2269,6 +2269,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = C,NA
 damage = 15,1
+
 animtype = Light
 hitflag = MAD
 guardflag = L
@@ -2334,7 +2335,6 @@ physics = C
 juggle  = 4
 ctrl = 0
 anim = 440
-poweradd = 55
 sprpriority = 2
 
 [State 440, VelMul]
@@ -2363,6 +2363,7 @@ type = HitDef
 trigger1 = time = 0
 attr = C,NA
 damage = 45,1
+
 animtype = low
 hitflag = MAD
 guardflag = L
@@ -2427,14 +2428,12 @@ physics = C
 juggle  = 4
 ctrl = 0
 anim = 450
-poweradd = 35
 sprpriority = 2
 
 [State PUSH FORWARD]
 type = VelSet
 trigger1 = time=0 
-trigger1 = numtarget || enemynear,stateno=2593
-x = p2dist x /10
+x = 7
 
 
 [State 450, VelMul]
@@ -2453,6 +2452,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = C,NA
 damage = 35,1
+
 animtype = Medium
 hitflag = MA
 guardflag = L
@@ -2472,6 +2472,7 @@ air.type = High
 air.hittime = 5
 air.velocity = -3.2,-10.5
 yaccel = 0.39+(enemynear,const(movement.yaccel)/2)
+fall.recover=0
 
 [State 211]
 Type = Helper
@@ -2520,7 +2521,6 @@ physics = A
 juggle  = 2
 ctrl = 0
 anim = 600
-poweradd = 15
 sprpriority = 2
 
 
@@ -2534,6 +2534,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = A,NA
 damage = 15,1
+
 animtype = Light
 guardflag = MA
 hitflag = MAF
@@ -2547,6 +2548,7 @@ guardsound = S8500,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 25
+air.hittime  = 25
 ground.velocity = -6
 air.fall = 0
 air.velocity = -3.2, -4.5
@@ -2597,7 +2599,6 @@ physics = A
 juggle  = 3
 ctrl = 0
 anim = 611
-poweradd = 35
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -2620,6 +2621,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = A,NA
 damage = 35,1
+
 animtype = medium
 guardflag = MA
 hitflag = MAF
@@ -2633,6 +2635,7 @@ guardsound = S8500,0
 ground.type = High
 ground.slidetime = 25
 ground.hittime  = 20
+air.hittime  = 25
 ground.velocity = -8
 air.fall = 0
 air.velocity = -3.2, -4.5
@@ -2683,7 +2686,6 @@ physics = A
 juggle  = 3
 ctrl = 0
 anim = 620
-poweradd = 55
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -2706,6 +2708,7 @@ type = HitDef
 trigger1 = AnimElem = 3
 attr = A,NA
 damage = 45,1
+
 animtype = High
 guardflag = MA
 hitflag = MAF
@@ -2756,7 +2759,6 @@ physics = A
 juggle  = 3
 ctrl = 0
 anim = 630
-poweradd = 35
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -2780,6 +2782,7 @@ triggerall = anim = 630
 trigger1 = AnimElem = 3
 attr = A,NA
 damage = 15,1
+
 animtype = Light
 guardflag = MA
 hitflag = MAF
@@ -2845,7 +2848,6 @@ physics = A
 juggle  = 3
 ctrl = 0
 anim = 640
-poweradd = 55
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -2871,6 +2873,7 @@ trigger3 = AnimElem = 3
 trigger4 = AnimElem = 6
 attr = A,NA
 damage = 11,1
+getpower=2,0
 animtype = High
 guardflag = MA
 hitflag = MAF
@@ -2933,7 +2936,6 @@ physics = A
 juggle  = 5
 ctrl = 0
 anim = 650
-poweradd = 55
 sprpriority = 2
 
 [State PUSH FORWARD]
@@ -2962,6 +2964,7 @@ type = HitDef
 trigger1 = AnimElem = 2
 attr = A,NA
 damage = 37,1
+
 animtype = High
 guardflag = MA
 hitflag = MAF
@@ -4014,6 +4017,11 @@ anim = 1223
 ctrl = 0
 sprpriority = 2
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = AnimElemTime(7)<0
+value = ,NA,SA,HA,NP,SP
+
 [State 240, 3]
 type = VelSet
 trigger1 = time=13
@@ -4091,8 +4099,8 @@ sparkxy = -15,-50
 damage = 196, 3
 hitsound = S9666,2
 guardsound = S8500,0
-ground.velocity = -15, -4
-air.velocity = -25, 28
+ground.velocity = -15, -10
+air.velocity = -25, -10
 ground.hittime = 19
 ground.slidetime = 5
 guard.dist = 100
@@ -4256,7 +4264,7 @@ ground.hittime  = 15
 ground.velocity = -2
 air.type = Low
 air.hittime = 15
-air.velocity = -3,-2
+air.velocity = -6,-2
 envshake.time = 1
 envshake.ampl = 1
 palfx.time = 4
@@ -4264,7 +4272,6 @@ palfx.add = 255,255,255
 palfx.mul = 255,255,256
 palfx.sinadd = 255,255,255,255
 palfx.color = 0
-mindist = 30,-999
 
 [State 65000, AfterImage]
 type = AfterImage
@@ -4477,7 +4484,7 @@ y = -6
 [State 1028, Vel X]
 type = VelSet
 trigger1 = Time = 0
-x = 1.6
+x = p2dist x /50
 
 [State 1028, Turn]
 type = Turn
@@ -4961,7 +4968,7 @@ persistent = 0
 [State 0, DestroySelf]
 type = changestate
 trigger1 = pos y > -vel y
-trigger2 = frontedgedist < -vel x
+trigger2 = frontedgedist < -vel x- 40
 value=4335
 ignorehitpause = 1
 ;persistent = 
@@ -8053,7 +8060,7 @@ ctrl = 0
 anim = 80053
 poweradd = -10
 VelSet = 0, 0
-sprpriority = 2
+sprpriority = -1
 
 [State 0, PalFXWiz]
 type = PalFX
@@ -8387,8 +8394,8 @@ value = 0
 [State -2, Debug Info]
 type = DisplayToClipboard
 trigger1 = roundstate > 0
-text = "Hits: %d, Screen Pack %d"
-params = P2BodyDist X, var(35)
+text = "Hits: %d, Screen Pack %d damage dampender =%f"
+params = P2BodyDist X, var(35),fvar(12)
 
 [State -2, Detect STUPID SOUNDS THAT KILL PUPPIES o_o ]
 type = Varset
@@ -8534,8 +8541,11 @@ type=varset
 trigger1= numenemy
 fvar(12)= ifelse(enemynear,gethitvar(hitcount)<3, 24, ifelse(enemynear,gethitvar(hitcount)>=24, 2, 26-enemynear,gethitvar(hitcount))) / 24.0  ;CFJ
 ;fvar(12)= ifelse(enemynear,gethitvar(hitcount)=0, 1, ifelse(enemynear,gethitvar(hitcount)=1, .9, .8**enemynear,gethitvar(hitcount)))  ;MVC
-ignorehitpause=1
-
+;Damage Dampener Variable Reset (by POTS)
+[State -3, Never make the dampener go under .25]
+type=varset
+trigger1= fvar(12)<.1
+fvar(12)=.1
 ;Damage Dampener Variable Reset (by POTS)
 [State -3, Reset var when the opponent recovers]
 type=varset

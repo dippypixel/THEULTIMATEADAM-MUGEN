@@ -1410,11 +1410,11 @@ triggerall = statetype = S
 triggerall = ctrl
 triggerall = stateno != 100
 trigger1 = command = "holdfwd"
-trigger1 = p2bodydist X < 3
+trigger1 = p2bodydist X < 55*const(size.xscale)
 trigger1 = (p2statetype = S) || (p2statetype = C)
 trigger1 = p2movetype != H
 trigger2 = command = "holdback"
-trigger2 = p2bodydist X < 5
+trigger2 = p2bodydist X < 55*const(size.xscale)
 trigger2 = (p2statetype = S) || (p2statetype = C)
 trigger2 = p2movetype != H
 
@@ -1619,6 +1619,7 @@ trigger12 = (StateNo = 410) && (Movecontact)
 trigger13 = (StateNo = 440) && (Movecontact)
 trigger14 = (StateNo = 430) && (Movecontact)
 trigger15 = (Stateno = 250) && (MoveContact)
+trigger16 =stateno=334112&&animelemtime(11)>0&& (MoveContact)
 
 ;-----------------------------
 
