@@ -132,8 +132,8 @@ flag = NoAutoTurn
 
 [State 100, 4]
 type = PlaySnd
-trigger1 = AnimELem = 3
-trigger2 = AnimELem = 7
+trigger1 = AnimELem = 2
+trigger2 = AnimELem = 6
 value = 8100,0
 
 [State 100, 10]
