@@ -3062,7 +3062,7 @@ type = ChangeState
 Trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
-
+;Throw 1
 [Statedef 810]
 type    = S
 movetype= A
@@ -3864,7 +3864,7 @@ sprpriority = 2
 [State 240, 3]
 type = VelSet
 trigger1 = time=13
-x = ifelse(p2dist x / 10>10,10,p2dist x / 10)
+x = ifelse(p2dist x / 10>20,20,p2dist x / 10)
 
 [state PlaySnd]
 Type = PlaySnd
@@ -3948,14 +3948,20 @@ SprPriority = 5
 Ctrl = 0
 
 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 1347+RANDOM%7
+elem = root,AnimElemNo(0)
+ignorehitpause = 1
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = 1
-value = 1347
+value = anim
 elem = root,AnimElemNo(0)
-;ignorehitpause = 
-;persistent = 
-
+ignorehitpause = 1
 [State 0, PosSet]
 type = PosSet
 trigger1 = 1
@@ -4001,12 +4007,17 @@ Trigger1 = root,stateno!=1020
 [Statedef 1022]
 type    = S
 movetype= A
-physics = N
+physics = S
 juggle  = 0
 velset = 0,0
 anim = 1223
 ctrl = 0
 sprpriority = 2
+
+[State 240, 3]
+type = VelSet
+trigger1 = time=13
+x = ifelse(p2dist x / 10>60,60,p2dist x / 10)
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -4112,7 +4123,7 @@ SuperMoveTime = 9999
 
 [State FKING FAT Baseball Bat]
 Type= Helper
-Trigger1 = AnimElem = 4
+Trigger1 = time=1
 HelperType = Normal
 Name = "TuffTony"
 Persistent = 0
@@ -4139,33 +4150,30 @@ MoveType = A
 Physics = N
 SprPriority = 5
 Ctrl = 0
-Juggle = 0
-Anim = 1359
 
-[State Bind]
-Type = BindToParent
-Trigger1 = Time >= 0
-Pos = -39,-69
 
-[State Bind]
-Type = BindToParent
-Trigger1 = Time >= 2
-Pos = 3,-46
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = 0
+value = 1359
+elem = root,AnimElemNo(0)
+ignorehitpause = 1
 
-[State Bind]
-Type = BindToParent
-Trigger1 = Time >= 4
-Pos = 56,-64
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = 1
+value = anim
+elem = root,AnimElemNo(0)
+ignorehitpause = 1
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+x = root,pos x
+y = root,pos y
+ignorehitpause = 1
+;persistent = 
 
-[State Bind]
-Type = BindToParent
-Trigger1 = Time >= 6
-Pos = 58,-70
 
-[State Bind]
-Type = BindToParent
-Trigger1 = Time >= 19
-Pos = 56,-64
 
 [State NotHitBy]
 type = NotHitBy
@@ -4176,9 +4184,7 @@ ignorehitpause=1
 
 [State End]
 Type = DestroySelf
-Trigger1 = Parent,StateNo != 1022
-Trigger2 = Root,MoveType = H
-
+Trigger1 = root,stateno!=1022
 
 ;---------------------------------------------------------------------------------------------
 ;PACMAN ADAM ZOLY JUNKZ!! O_o
