@@ -6607,9 +6607,10 @@ persistent = 0
 [State 3100, SuperPause]
 type = SuperPause
 trigger1 = AnimElem = 1
-Time = 30
+Time = 38
 pos = -2,-42
 anim = S10000
+movetime=38
 PowerAdd = -1000
 darken = 0
 sound = S8889,0
@@ -6647,10 +6648,10 @@ value = S8400,1
 
 ;225
 
-[State 0, HitDef]
+[State 0, HitHigh]
 type = HitDef
-trigger1 = AnimElem=4 || AnimElem=7 || AnimElem=14 || AnimElem=17 || AnimElem=22
-trigger2 = Animelem = 27 || Animelem=30 || Animelem=34
+trigger1 = AnimElem=4|| AnimElem=14
+trigger2 = Animelem = 27 || Animelem=34
 attr = S,HA
 hitflag = MAF
 guardflag = MA
@@ -6666,8 +6667,8 @@ guardsound = S8500,0
 ground.type = Low
 ground.slidetime = 0
 ground.hittime = 30
-ground.velocity = 0
-air.velocity = 0
+ground.velocity = 0,0
+air.velocity = 0,0
 airguard.velocity = 0,0
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -6682,7 +6683,47 @@ getpower = 0,0
 envshake.time = 15
 envshake.freq = 190
 envshake.ampl = -5
-forcenofall = 1
+mindist=0,0
+p2stateno=9000
+
+[State 0, HitLow]
+type = HitDef
+trigger1 = AnimElem=7|| AnimElem=17 || AnimElem=22
+trigger2 = Animelem=30
+attr = S,HA
+hitflag = MAF
+guardflag = MA
+animtype = Hard
+priority = 6,Hit
+damage = 23,3
+pausetime = 8,3
+sparkno = -1;S8880+random%3
+guard.sparkno = S6767
+sparkxy = -10,-52
+hitsound = S8000,2
+guardsound = S8500,0
+ground.type = Low
+ground.slidetime = 0
+ground.hittime = 30
+ground.velocity = 0,0
+air.velocity = 0,0
+airguard.velocity = 0,0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+forcestand = 1
+id = 3200
+kill = 0
+guard.kill = 0
+getpower = 0,0
+envshake.time = 15
+envshake.freq = 190
+envshake.ampl = -5
+mindist=0,0
+p2stateno=9001
+
 
 [State 211]
 Type = Helper
@@ -6718,6 +6759,7 @@ value = 0
 ctrl = 1
 
 ;------------------------ ê¨å˜ÅióêïëÅj
+; Adam's Basher
 [Statedef 3201]
 type = S
 movetype = A
@@ -6751,7 +6793,7 @@ SuperMoveTime = 9999
 type = HitDef
 trigger1 = Time=0
 attr = S,HA
-hitflag = MA
+hitflag = MAF
 guardflag = MA
 animtype = Hard
 priority = 7,Hit
@@ -6811,6 +6853,53 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
+
+;---------------------------------------------------------------------------
+; CustomHit(High)
+[Statedef 9000]
+type    = S
+movetype= H
+physics = S
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+y = 0
+ignorehitpause = 1
+[State 0, VelSet]
+type = posset
+trigger1 = 1
+y = 0
+ignorehitpause = 1
+
+[State 5000, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = 1
+value = 5002
+
+
+;---------------------------------------------------------------------------
+; CustomHit(Low)
+[Statedef 9001]
+type    = S
+movetype= H
+physics = S
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+y = 0
+ignorehitpause = 1
+[State 0, VelSet]
+type = posset
+trigger1 = 1
+y = 0
+ignorehitpause = 1
+[State 5000, 1] ;Anim for HIT_LIGHT to HIT_HARD
+type = ChangeAnim
+trigger1 = 1
+value = 5012
+
+
+
 
 [Statedef 4000]
 type    = A

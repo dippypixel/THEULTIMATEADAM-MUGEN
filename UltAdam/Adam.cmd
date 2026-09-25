@@ -230,7 +230,7 @@ time = 20
 
 [Command]
 name = "TONYBAT"
-command = ~D, DF, F, c+b
+command = ~D, DB, B, c+b
 time = 20
 
 [Command]
