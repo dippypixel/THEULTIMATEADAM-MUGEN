@@ -155,27 +155,27 @@ command.buffer.time = 1
 ;
 [Command]
 name = "TripleKFPalm"
-command = ~D, DF, F, D, DF, F, x
+command = ~D, DB, B, D, DB, B, x
 time = 20
 
 [Command]
 name = "TripleKFPalm"   ;Same name as above
-command = ~D, DF, F, D, DF, F, y
+command = ~D, DB, B, D, DB, B, y
 time = 20
 
 [Command]
 name = "BASH0R"   ;Same name as above
-command = ~D,DB,B, x+y
+command = ~D,DF,F, x+y
 time = 20
 
 [Command]
 name = "BASH0R"   ;Same name as above
-command = ~D,DB,B, y+z
+command = ~D,DF,F, y+z
 time = 20
 
 [Command]
 name = "BASH0R"   ;Same name as above
-command = ~D,DB,B, x+z
+command = ~D,DF,F, x+z
 time = 20
 
 [Command]
@@ -184,7 +184,7 @@ command = ~D, DB, B, D, DB, B, z+c ;~F, D, DF, F, D, DF, x
 time = 20
 [Command]
 name = "Creeper"
-command = ~D, F, D, B, z
+command = ~D, B, D, F, z
 time = 20
 ;-| Special Motions |------------------------------------------------------
 
@@ -230,7 +230,7 @@ time = 20
 
 [Command]
 name = "TONYBAT"
-command = ~D, DB, B, c+b
+command = ~D, DF, F, c+b
 time = 20
 
 [Command]

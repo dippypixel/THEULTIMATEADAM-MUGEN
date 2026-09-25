@@ -5749,6 +5749,15 @@ velset = 0,0
 anim = 3000
 sprpriority = -4
 ctrl = 0
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 50,0
+player = 50,0
+;value = 0,0
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, ]
 type = PlaySnd
@@ -5953,6 +5962,7 @@ envshake.freq = 25
 fall = 1
 fall.recover = 0
 getpower = 0
+mindist = 30,-99999
 
 [State 0, ]
 type = Changestate
