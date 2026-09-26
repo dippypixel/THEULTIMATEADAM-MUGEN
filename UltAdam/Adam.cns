@@ -7810,6 +7810,18 @@ type = TargetState
 trigger1 = time = 313
 value = 3411
 
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 10
+anim = 12011 
+ID = 12011
+pos = 0,150
+postype = p1  ;p2,front,back,left,right
+removetime = 60
+vel = 0,-2.5
+scale = 1,1
+sprpriority = 5
+ownpal = 0
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = animtime = 0
