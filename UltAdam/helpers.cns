@@ -721,6 +721,664 @@ Trigger2 = Time = 12
 IgnoreHitPause = 0
 SuperMoveTime = 9999
 PauseMoveTime = 9999
+;=================================================================================================
+;Spark (always in front)
+[StateDef 7001]
+Type = A
+Physics = N
+SprPriority = 70
+Anim = 7000
+
+[State 7000, NotHitBy]
+Type = NotHitBy
+Trigger1 = 1
+Value = SAC, NT, ST, HT ,NA, SA, HA ,NP, SP, HP
+Time = 1
+
+[State 7000, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 7000, VarRandom(1)]
+Type = VarRandom
+Trigger1 = !Time
+V = 3
+Range = -25,25
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(2)]
+Type = VarRandom
+Trigger1 = !Time
+V = 4
+Range = -25,25
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, PosAdd]
+Type = PosAdd
+Trigger1 = !Time
+X = -10+Var(3)
+Y = Var(4)
+
+[State 7000, VarRandom(3)]
+Type = VarRandom
+Trigger1 = !Time
+V = 3
+Range = 0,359
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarAdd(1)]
+Type = VarAdd
+Trigger1 = IsHelper(7000) || IsHelper(6010)
+Trigger1 = Time >= 1
+FV = 1
+Value = -0.14500
+
+[State 7000, VarAdd(2)]
+Type = VarAdd
+Trigger1 = IsHelper(7000) || IsHelper(6010)
+Trigger1 = Time >= 1
+FV = 2
+Value = 0.02900
+
+[State 7000, VarAdd(3)]
+Type = VarAdd
+Trigger1 = IsHelper(7001) || IsHelper(6011)
+Trigger1 = Time >= 1
+FV = 1
+Value = -0.18675
+
+[State 7000, VarAdd(4)]
+Type = VarAdd
+Trigger1 = IsHelper(7001) || IsHelper(6011)
+Trigger1 = Time >= 1
+FV = 2
+Value = 0.03735
+
+[State 7000, VarAdd(5)]
+Type = VarAdd
+Trigger1 = IsHelper(6002) || IsHelper(6012)
+Trigger1 = Time >= 1
+FV = 1
+Value = -0.22875
+
+[State 7000, VarAdd(6)]
+Type = VarAdd
+Trigger1 = IsHelper(6002) || IsHelper(6012)
+Trigger1 = Time >= 1
+FV = 2
+Value = 0.04575
+
+[State 7000, VarAdd(7)]
+Type = VarAdd
+Trigger1 = IsHelper(6003) || IsHelper(6013)
+Trigger1 = Time >= 1
+FV = 1
+Value = -0.31175
+
+[State 7000, VarAdd(8)]
+Type = VarAdd
+Trigger1 = IsHelper(6003) || IsHelper(6013)
+Trigger1 = Time >= 1
+FV = 2
+Value = 0.06235
+
+[State 7000, AngleDraw(1)]
+Type = AngleDraw
+Trigger1 = IsHelper(7000) || IsHelper(6010)
+Scale = 0.35000-FVar(1),0.35000-FVar(2)
+
+[State 7000, AngleDraw(2)]
+Type = AngleDraw
+Trigger1 = IsHelper(7001) || IsHelper(6011)
+Scale = 0.45000-FVar(1),0.45000-FVar(2)
+
+[State 7000, AngleDraw(3)]
+Type = AngleDraw
+Trigger1 = IsHelper(6002) || IsHelper(6012)
+Scale = 0.55000-FVar(1),0.55000-FVar(2)
+
+[State 7000, AngleDraw(4)]
+Type = AngleDraw
+Trigger1 = IsHelper(6003) || IsHelper(6013)
+Scale = 0.75000-FVar(1),0.75000-FVar(2)
+
+[State 7000, AngleSet]
+Type = AngleSet
+Trigger1 = !Time
+Value = Var(3)
+
+[State 7000, VarAdd(9)]
+Type = VarAdd
+Trigger1 = Time >= 1
+FV = 3
+Value = 0.00625
+
+[State 7000, VarAdd(10)]
+Type = VarAdd
+Trigger1 = Time >= 1
+FV = 4
+Value = 0.00655
+
+[State 7000, VarAdd(11)]
+Type = VarAdd
+Trigger1 = Time >= 1
+FV = 5
+Value = 0.00705
+
+[State 7000, VarAdd(12)]
+Type = VarAdd
+Trigger1 = Time >= 1
+FV = 6
+Value = 0.00755
+
+[State 7000, VarAdd(13)]
+Type = VarAdd
+Trigger1 = Time >= 1
+FV = 7
+Value = 0.00825
+
+[State 7000, VarAdd(14)]
+Type = VarAdd
+Trigger1 = Time >= 1
+FV = 8
+Value = 0.00905
+
+[State 7000, VarRandom(4)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(5)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(1)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(3),0.1200-FVar(3)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 16
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7000
+
+[State 7000, VarRandom(6)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(7)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(2)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(3),0.1200-FVar(3)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 16
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7000
+
+[State 7000, VarRandom(8)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(9)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(3)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(4),0.1200-FVar(4)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 15
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7001
+
+[State 7000, VarRandom(10)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(11)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(4)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(4),0.1200-FVar(4)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 15
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7001
+
+[State 7000, VarRandom(12)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(13)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(5)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(5),0.1200-FVar(5)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 14
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7002
+
+[State 7000, VarRandom(14)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(15)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(6)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(5),0.1200-FVar(5)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 14
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7002
+
+[State 7000, VarRandom(16)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(17)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(7)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(6),0.1200-FVar(6)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 13
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7003
+
+[State 7000, VarRandom(18)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(19)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(8)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(6),0.1200-FVar(6)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 13
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7003
+
+[State 7000, VarRandom(20)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(21)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(9)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(7),0.1200-FVar(7)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 12
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7004
+
+[State 7000, VarRandom(22)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(23)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(10)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(7),0.1200-FVar(7)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 12
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7004
+
+[State 7000, VarRandom(24)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(25)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(11)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(8),0.1200-FVar(8)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 11
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7005
+
+[State 7000, VarRandom(26)]
+Type = VarRandom
+Trigger1 = !Time
+V = 5
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, VarRandom(27)]
+Type = VarRandom
+Trigger1 = !Time
+V = 6
+Range = -30,30
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, Explod(12)]
+Type = Explod
+Trigger1 = !Time
+Anim = 7001
+PosType = P1
+Pos = 0,0
+Random = 10,10
+Ownpal = 1
+Scale = 0.1200-FVar(8),0.1200-FVar(8)
+Vel = Var(5)*0.25,Var(6)*0.25
+RemoveTime = 11
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+SprPriority = 70
+ID = 7005
+
+[State 7000, ModifyExplod(1)]
+Type = ModifyExplod
+Trigger1 = 1
+Scale = 0.1200-FVar(3),0.1200-FVar(3)
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+ID = 7000
+
+[State 7000, ModifyExplod(2)]
+Type = ModifyExplod
+Trigger1 = 1
+Scale = 0.1200-FVar(4),0.1200-FVar(4)
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+ID = 7001
+
+[State 7000, ModifyExplod(3)]
+Type = ModifyExplod
+Trigger1 = 1
+Scale = 0.1200-FVar(5),0.1200-FVar(5)
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+ID = 7002
+
+[State 7000, ModifyExplod(4)]
+Type = ModifyExplod
+Trigger1 = 1
+Scale = 0.1200-FVar(6),0.1200-FVar(6)
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+ID = 7003
+
+[State 7000, ModifyExplod(5)]
+Type = ModifyExplod
+Trigger1 = 1
+Scale = 0.1200-FVar(7),0.1200-FVar(7)
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+ID = 7004
+
+[State 7000, ModifyExplod(6)]
+Type = ModifyExplod
+Trigger1 = 1
+Scale = 0.1200-FVar(8),0.1200-FVar(8)
+IgnoreHitPause = 1
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+ID = 7005
+
+[State 7000, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = Noshadow
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 7000, DestroySelf]
+Type = DestroySelf
+Trigger1 = !AnimTime
+Trigger2 = Time = 12
+IgnoreHitPause = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
 
 [Statedef 4560]
 Type = A

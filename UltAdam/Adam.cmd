@@ -682,7 +682,7 @@ trigger2 = (stateno = [220,250]) || stateno = 420
 trigger2 = movecontact
 
 [State -1, CHEX QUEST]
-type = ChangeState
+type = Null;ChangeState
 value = 3100
 triggerall = var(59)>0 && roundstate = 2 && alive && numenemy
 triggerall = enemynear(var(57)),stateno != [120,155]
@@ -690,6 +690,22 @@ triggerall = enemynear(!enemynear,alive),vel y >= 0
 triggerall = p2bodydist x >= 60
 triggerall = power >= 1000
 triggerall = power <= 1300
+triggerall = enemynear(var(57)),statetype != L
+trigger1 = (enemynear(var(57)),movetype != H)
+triggerall = statetype != A
+trigger1 = ctrl && random <= var(59) * 30
+trigger2 = (stateno = [220,250]) || stateno = 420
+trigger2 = movecontact
+
+[State -1, CHEX QUEST]
+type = ChangeState
+value = 3400
+triggerall = var(59)>0 && roundstate = 2 && alive && numenemy
+triggerall = enemynear(var(57)),stateno != [120,155]
+triggerall = enemynear(!enemynear,alive),vel y >= 0
+triggerall = p2bodydist x >= 60
+triggerall = power >= 2000
+triggerall = power <= 2300
 triggerall = enemynear(var(57)),statetype != L
 trigger1 = (enemynear(var(57)),movetype != H)
 triggerall = statetype != A
@@ -1107,11 +1123,23 @@ trigger2 = stateno != [3050,3100]
 trigger2 = movecontact
 
 [State -1, Chex Quest ftw]
-type = ChangeState
+type = Null;ChangeState
 value = 3100
 triggerall = !ailevel
 triggerall = command = "SmashKFUpper"
 triggerall = power >= 1000
+triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = hitdefattr = SC, NA, SA, HA
+trigger2 = stateno != [3050,3100]
+trigger2 = movecontact
+
+[State -1, Chex Quest ftw]
+type = ChangeState
+value = 3400
+triggerall = !ailevel
+triggerall = command = "SmashKFUpper"
+triggerall = power >= 2000
 triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = hitdefattr = SC, NA, SA, HA
